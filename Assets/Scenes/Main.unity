@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  mouseSensitivity: 100
 --- !u!1 &1321632576
 GameObject:
   m_ObjectHideFlags: 0
