@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravityDivide = 1f;
     public float jumpSpeed = 15f;
 
+    private float accelerationTimer;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -52,12 +54,14 @@ public class PlayerMovement : MonoBehaviour
         if (!isGround)
         {
             velocity.y += gravity * Time.deltaTime / gravityDivide;
-            speed = jumpSpeed;
+            accelerationTimer += Time.deltaTime / 3;
+            speed = Mathf.Lerp(speed, jumpSpeed, accelerationTimer); // Lerp(10, 20, 0.5) için 15 verir. a ile b arasýndaki c. deðer. Timer sayesinde ivmeli hareket için zamanla artan bir deðer elde ettik.
         }
         else
         {
             velocity.y = -0.05f;
             speed = 10f;
+            accelerationTimer = 0;
         }
             
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
