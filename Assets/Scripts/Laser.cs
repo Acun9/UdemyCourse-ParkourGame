@@ -7,6 +7,7 @@ public class Laser : MonoBehaviour
     RaycastHit hit;
     public LayerMask obstacle, playerLayer;
     public GameObject deathEffect;
+    public float laserMultiplier = 1;
 
     private void Update()
     {
@@ -17,7 +18,7 @@ public class Laser : MonoBehaviour
             GetComponent<LineRenderer>().SetPosition(0, transform.position);
             GetComponent<LineRenderer>().SetPosition(1, hit.point);
 
-            GetComponent<LineRenderer>().startWidth = 0.025f + Mathf.Sin(Time.time)/80;
+            GetComponent<LineRenderer>().startWidth = 0.025f * laserMultiplier + Mathf.Sin(Time.time)/80;
         }
         else
         {
