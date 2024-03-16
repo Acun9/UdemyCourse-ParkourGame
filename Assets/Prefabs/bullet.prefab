@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2615f1431204c9b48a3ef8d1fe5700bb, type: 2}
     - target: {fileID: 919132149155446097, guid: 598e4ba8e3b42d2459ed0f0e33b18034, type: 3}
       propertyPath: m_Name
-      value: bullet
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86710f59dd785d44e95e5cf3fedbe812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 60
+  lifeTime: 5
 --- !u!96 &4382400145037565281
 TrailRenderer:
   serializedVersion: 3
