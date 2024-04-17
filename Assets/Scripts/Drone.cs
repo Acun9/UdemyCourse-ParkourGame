@@ -11,6 +11,9 @@ public class Drone : MonoBehaviour
     public float speed = 1;
     public float followDistance = 10f;
 
+    private float cooldown = 2f;
+    public GameObject mesh;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -18,6 +21,7 @@ public class Drone : MonoBehaviour
     private void Update()
     {
         FollowPlayer();
+        Shot();
     }
     private void FollowPlayer()
     {
@@ -35,5 +39,18 @@ public class Drone : MonoBehaviour
             transform.RotateAround(player.position, transform.up, Time.deltaTime * speed * Random.Range(0.2f, 3f)); // a'nýn etrafýnda b ekseninde dönsün
         }
         
+    }
+    private void Shot()
+    {
+        if(cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        else
+        {
+            cooldown = 2f;
+            //shot
+            mesh.GetComponent<Animator>().SetTrigger("shot");
+        }
     }
 }
