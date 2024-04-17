@@ -13,10 +13,12 @@ public class Drone : MonoBehaviour
 
     private float cooldown = 2f;
     public GameObject mesh;
+    public GameObject enemyBullet;
+
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
     private void Update()
     {
@@ -51,6 +53,7 @@ public class Drone : MonoBehaviour
             cooldown = 2f;
             //shot
             mesh.GetComponent<Animator>().SetTrigger("shot");
+            Instantiate(enemyBullet,transform.position, transform.rotation);
         }
     }
 }
